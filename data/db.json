@@ -1,0 +1,158 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Tricia Albert",
+            "email": "tricia@example.com",
+            "password": "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC\/.og\/at2.uheWG\/igi",
+            "avatar": "https:\/\/randomuser.me\/api\/portraits\/women\/50.jpg"
+        },
+        {
+            "name": "Alias Kamsi",
+            "email": "aliaskamsi@gmail.com",
+            "password": "$2y$12$xeTwUT2rPXfX5FkQPYCYjuOOD1T.m1bPbmxOWjOqDzQo7F.gU6Kii",
+            "avatar": "https:\/\/randomuser.me\/api\/portraits\/lego\/1.jpg",
+            "id": 2
+        },
+        {
+            "name": "Glorious Nathalie",
+            "email": "gloriousnathalie@gmail.com",
+            "password": "$2y$12$YvmggFxqoyRWPNZy4jT6kewlTfeheCddT2n\/zPiij4Hmardd7pO4.",
+            "avatar": "https:\/\/randomuser.me\/api\/portraits\/lego\/1.jpg",
+            "id": 3
+        }
+    ],
+    "recipes": [
+        {
+            "id": 1,
+            "title": "Mix Veggies Cabbage Salad",
+            "image": "home-page\/latest-recipes\/Recipe\/Image.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Vegan",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 2,
+            "title": "Strawberry Vanilla Splash",
+            "image": "home-page\/latest-recipes\/Recipe\/Image-1.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 4,
+            "category": "Smoothies",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 3,
+            "title": "Vanilla Mix Mango Smoothies",
+            "image": "home-page\/latest-recipes\/Recipe\/Image-2.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Smoothies",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 4,
+            "title": "Spinach Cabbage Rolls",
+            "image": "home-page\/latest-recipes\/Recipe\/Image-3.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Vegan",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 5,
+            "title": "Chicken Sausage and Salad",
+            "image": "home-page\/latest-recipes\/Recipe\/Image-4.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 4,
+            "category": "Breakfast",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 6,
+            "title": "Fried Rice with Chicken",
+            "image": "home-page\/latest-recipes\/Recipe\/Image-5.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Breakfast",
+            "is_latest": true,
+            "is_super_delicious": false
+        },
+        {
+            "id": 7,
+            "title": "Quick and Easy Strawberry Splash",
+            "image": "home-page\/super-delicious\/Image.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Smoothies",
+            "is_latest": false,
+            "is_super_delicious": true
+        },
+        {
+            "id": 8,
+            "title": "Chicken Sausage with Cabbage",
+            "image": "home-page\/super-delicious\/Image-1.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Breakfast",
+            "is_latest": false,
+            "is_super_delicious": true
+        },
+        {
+            "id": 9,
+            "title": "Spicy Pasta Bolognese",
+            "image": "home-page\/super-delicious\/Image-2.png",
+            "author": "Tricia Albert",
+            "author_id": 1,
+            "rating": 5,
+            "category": "Pasta",
+            "is_latest": false,
+            "is_super_delicious": true
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "Pasta",
+            "image": "home-page\/popular-categories\/Image.png"
+        },
+        {
+            "id": 2,
+            "name": "Pizza",
+            "image": "home-page\/popular-categories\/Image-1.png"
+        },
+        {
+            "id": 3,
+            "name": "Vegan",
+            "image": "home-page\/popular-categories\/Image-2.png"
+        },
+        {
+            "id": 4,
+            "name": "Desserts",
+            "image": "home-page\/popular-categories\/Image-3.png"
+        },
+        {
+            "id": 5,
+            "name": "Smoothies",
+            "image": "home-page\/popular-categories\/Image-4.png"
+        },
+        {
+            "id": 6,
+            "name": "Breakfast",
+            "image": "home-page\/popular-categories\/Image-5.png"
+        }
+    ]
+}

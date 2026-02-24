@@ -1,0 +1,241 @@
+:root {
+    --orange: #FF642F;
+    --bg-orange: #FFD7C9;
+    --bg-blue: #E3F1FF;
+    --gray-text: #7f7f7f;
+    --light-gray-bg: #F9F9F9;
+    --border-color: #E8E8E8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.section-container {
+    margin-bottom: 80px;
+}
+
+/* Category Header Banner */
+.category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0 64px 0;
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+}
+
+.header-text p {
+    font-size: 18px;
+    color: var(--gray-text);
+    margin: 0;
+}
+
+.header-image {
+    flex: 0 0 auto;
+}
+
+.header-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 24px;
+}
+
+/* Grids */
+.recipe-grid {
+    display: grid;
+    gap: 32px;
+}
+
+.recipe-grid.cards-4 {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 48px;
+}
+
+.recipe-card {
+    text-decoration: none;
+    color: #000;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+}
+
+.recipe-card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 16px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Load More */
+.load-more {
+    text-align: center;
+    margin-top: 64px;
+}
+
+.load-more-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.load-more-btn:hover {
+    background: var(--light-gray-bg);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background-color: var(--bg-orange);
+    padding: 80px 20px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    margin: 0 0 16px 0;
+    line-height: 1.1;
+}
+
+.newsletter-content p {
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 40px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 16px;
+}
+
+.input-wrapper i {
+    color: var(--gray-text);
+}
+
+.input-wrapper input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+.newsletter-form button {
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.newsletter-terms {
+    font-size: 12px !important;
+    color: #000;
+    margin: 0 !important;
+}
+
+.newsletter-terms a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .category-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .header-text h1 {
+        font-size: 40px;
+    }
+
+    .header-image {
+        width: 100%;
+    }
+
+    .header-image img {
+        width: 100%;
+    }
+
+    .recipe-grid.cards-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newsletter-content h2 {
+        font-size: 36px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+    }
+
+    .input-wrapper {
+        background: white;
+        padding: 16px;
+        border-radius: 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .recipe-grid.cards-4 {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,378 @@
+:root {
+    --orange: #FF642F;
+    --bg-orange: #FFD7C9;
+    --gray-text: #7f7f7f;
+    --light-gray-bg: #F9F9F9;
+    --border-color: #E8E8E8;
+    --success-green: #5DE290;
+    --danger-red: #FF4242;
+}
+
+body.modal-page {
+    background-color: #F3F4F6;
+    margin: 0;
+}
+
+.modals-container {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 60vh;
+}
+
+/* Base Card Style */
+.modal-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    padding: 40px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-top: 0;
+    color: #000;
+}
+
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Helpers */
+.mt-32 {
+    margin-top: 32px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+}
+
+.btn-primary:hover {
+    background-color: #e55a2a;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    padding: 12px 32px;
+}
+
+.btn-outline:hover {
+    background-color: var(--light-gray-bg);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 14px;
+}
+
+/* 1. Cookie Notice */
+.cookie-notice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    gap: 32px;
+    padding: 32px 40px;
+}
+
+.cookie-notice h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.cookie-notice p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000;
+}
+
+/* Grid Layout for auth cards & others */
+.grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+/* 2 & 3. Auth Modals */
+.auth-modal {
+    width: 400px;
+    padding: 48px 40px;
+}
+
+.auth-modal h2 {
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-text);
+    font-size: 18px;
+}
+
+.input-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 12px 12px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-bottom-color: var(--orange);
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -16px;
+    margin-bottom: 32px;
+}
+
+.forgot-password a {
+    color: var(--orange);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.divider {
+    text-align: center;
+    margin: 32px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+    z-index: 1;
+}
+
+.divider span {
+    background: white;
+    padding: 0 16px;
+    color: var(--gray-text);
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+.social-login {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-social {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--light-gray-bg);
+    border: none;
+    color: #000;
+    font-weight: 500;
+    padding: 12px;
+    font-size: 14px;
+}
+
+.btn-facebook {
+    color: #1877F2;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 14px;
+    color: #000;
+}
+
+.auth-footer a {
+    color: var(--orange);
+    text-decoration: none;
+}
+
+/* 4. Delete Modal */
+.delete-modal {
+    width: 400px;
+    padding: 40px;
+    align-self: flex-start;
+}
+
+.delete-modal h2 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.delete-modal p {
+    font-size: 14px;
+    color: #000;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.action-buttons button {
+    flex: 1;
+}
+
+/* 5. Toast Message */
+.right-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 300px;
+}
+
+.toast-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.toast-message span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-small {
+    padding: 8px 16px;
+    font-size: 12px;
+}
+
+/* 6. Recipe Feedback Modal */
+.feedback-modal {
+    max-width: 600px;
+    text-align: center;
+    padding: 64px 40px;
+}
+
+.feedback-modal h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+}
+
+.feedback-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.btn-success {
+    background-color: var(--success-green);
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.btn-danger {
+    background-color: var(--danger-red);
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .cookie-notice {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+    }
+
+    .cookie-notice button {
+        width: 100%;
+    }
+
+    .grid-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .auth-modal,
+    .delete-modal,
+    .right-stack {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .feedback-modal h2 {
+        font-size: 32px;
+    }
+}
