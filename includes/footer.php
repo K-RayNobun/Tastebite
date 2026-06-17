@@ -11,19 +11,16 @@
             <div>
                 <strong>Tastebite <i class="fa-solid fa-chevron-down"></i></strong>
                 <ul>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="about.php">Our Story</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="categories.php">All Categories</a></li>
                 </ul>
             </div>
             <div>
                 <strong>Legal <i class="fa-solid fa-chevron-down"></i></strong>
                 <ul>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Conditions</a></li>
-                    <li><a href="#">Cookies</a></li>
-                    <li><a href="#">Copyright</a></li>
+                    <li><a href="about.php">Terms & Conditions</a></li>
+                    <li><a href="about.php">Privacy Policy</a></li>
                 </ul>
             </div>
             <div>

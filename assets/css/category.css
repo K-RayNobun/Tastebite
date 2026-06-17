@@ -1,0 +1,109 @@
+/* Premium Category Page Styles */
+.category-hero {
+    position: relative;
+    padding: 60px 0;
+    margin-bottom: 80px;
+    background: #fdfdfd;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.category-hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.category-hero-text {
+    flex: 1;
+}
+
+.category-hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+}
+
+.category-hero-text p {
+    font-size: 18px;
+    color: var(--gray-text);
+    max-width: 450px;
+    line-height: 1.6;
+}
+
+.category-hero-image {
+    flex: 0 0 500px;
+    position: relative;
+}
+
+.category-hero-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+/* Decorative element */
+.category-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: var(--orange-light);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Recipe Grid on Category Page */
+.category-results {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+}
+
+.category-results h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+    .category-hero {
+        padding: 40px 20px;
+        border-radius: 0;
+    }
+
+    .category-hero-content {
+        flex-direction: column-reverse;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .category-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .category-hero-text p {
+        margin: 0 auto;
+    }
+
+    .category-hero-image {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .category-hero-image img {
+        height: 300px;
+    }
+}

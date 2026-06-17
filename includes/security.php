@@ -26,8 +26,17 @@ function sanitize($data) {
 }
 
 /**
- * Validate email format
+ * Centralized error logging (Issue #11)
+ * Logs messages to BASE_PATH . 'storage/logs/app.log'
  */
-function is_valid_email($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
+function log_error($message, $level = 'ERROR') {
+    $log_dir = BASE_PATH . 'storage/logs';
+    if (!is_dir($log_dir)) {
+        @mkdir($log_dir, 0775, true);
+    }
+    
+    $timestamp = date('Y-m-d H:i:s');
+    $log_entry = "[{$timestamp}] [{$level}] {$message}" . PHP_EOL;
+    
+    @error_log($log_entry, 3, $log_dir . '/app.log');
 }

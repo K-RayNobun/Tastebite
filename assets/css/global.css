@@ -174,3 +174,26 @@
     background: var(--gray-light);
     color: var(--orange);
 }
+/* Form Validation & State UX (Issue #8) */
+.input-error {
+    border-bottom: 2px solid #ff4d4d !important;
+    background: #fffafa !important;
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.btn-loading {
+    opacity: 0.7;
+    cursor: wait !important;
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: "...";
+}

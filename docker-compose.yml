@@ -1,0 +1,57 @@
+services:
+  # PHP FastCGI Process Manager (App Logic)
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: tastebite-app
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Persistent volume for JSON "database"
+      - tastebite-data:/var/www/html/data
+      # Persistent volume for user uploads
+      - tastebite-uploads:/var/www/html/uploads
+    networks:
+      - tastebite-network
+
+  # Nginx Web Server (Entry Point)
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    container_name: tastebite-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - tastebite-network
+
+  # Database Service (MariaDB for future scalability)
+  # Currently, the application uses a JSON file, but adding this completes the 'production-ready' setup.
+  db:
+    image: mariadb:10.6
+    container_name: tastebite-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_DATABASE:-tastebite}
+      MYSQL_USER: ${DB_USER:-tastebite_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-tastebite_pass}
+    volumes:
+      - tastebite-db-data:/var/lib/mysql
+    networks:
+      - tastebite-network
+
+networks:
+  tastebite-network:
+    driver: bridge
+
+volumes:
+  tastebite-data:
+  tastebite-db-data:
+  tastebite-uploads:

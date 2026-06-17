@@ -6,7 +6,7 @@ $auth->requireLogin();
 $user = $auth->getCurrentUser();
 
 $page_title = "Tastebite | Profile";
-$extra_css = ['profile-page/styles.css'];
+$extra_css = ['assets/css/pages/profile.css'];
 
 include 'includes/head.php';
 include 'includes/header.php';

@@ -60,12 +60,12 @@ include 'includes/header.php';
             </div>
 
             <div class="social-login">
-                <button type="button" class="btn-social btn-facebook">
+                <a href="api/social-login.php?provider=facebook" class="btn-social btn-facebook">
                     <i class="fa-brands fa-facebook-f"></i> Facebook
-                </button>
-                <button type="button" class="btn-social btn-google">
-                    <img src="profile-page/images/accounts/Google Logo.svg" alt="Google" width="18"> Google
-                </button>
+                </a>
+                <a href="api/social-login.php?provider=google" class="btn-social btn-google">
+                    <i class="fa-brands fa-google"></i> Google
+                </a>
             </div>
 
             <div class="auth-footer">

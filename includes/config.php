@@ -10,9 +10,24 @@ header("Referrer-Policy: strict-origin-when-cross-origin");
 define('BASE_PATH', __DIR__ . '/../');
 define('ASSETS_URL', '/assets/');
 
-// Helper to get image paths based on current location
-function get_image_path($relative_path) {
-    return $relative_path;
+// Helper to get image paths safely (Issue #4)
+function get_recipe_image($path) {
+    if (empty($path)) {
+        return 'assets/images/hero/Image.png'; // Site placeholder
+    }
+    
+    // If it's a full URL, return it
+    if (filter_var($path, FILTER_VALIDATE_URL)) {
+        return $path;
+    }
+    
+    // Check if local file exists
+    if (!file_exists(BASE_PATH . $path)) {
+        // Return a category-specific placeholder if possible or generic
+        return 'assets/images/hero/Image.png'; 
+    }
+    
+    return $path;
 }
 
 // Site settings

@@ -9,7 +9,7 @@ if (!$recipe) {
 }
 
 $page_title = "Tastebite | " . h($recipe['title']);
-$extra_css = ['recipe-page/styles.css'];
+$extra_css = ['assets/css/pages/recipe.css'];
 
 include 'includes/head.php';
 include 'includes/header.php';
@@ -22,9 +22,11 @@ include 'includes/header.php';
             <i class="fa-solid fa-arrow-trend-up"></i>
             <span><strong>85%</strong> would make this again</span>
         </div>
+        <?php $is_saved = $db->isRecipeSaved($_SESSION['user_id'] ?? 0, $recipe['id']); ?>
         <div class="action-buttons">
-            <button aria-label="Share"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
-            <button aria-label="Save"><i class="fa-regular fa-bookmark"></i></button>
+            <button aria-label="Share recipe" id="share-recipe" data-id="<?php echo $recipe['id']; ?>"><i class="fa-solid fa-arrow-up-from-bracket" aria-hidden="true"></i></button>
+            <button aria-label="Save recipe to bookmarks" id="save-recipe" data-id="<?php echo $recipe['id']; ?>"><i class="<?php echo $is_saved ? 'fa-solid' : 'fa-regular'; ?> fa-bookmark" aria-hidden="true"></i></button>
+            <button aria-label="Print recipe" id="print-recipe" data-id="<?php echo $recipe['id']; ?>"><i class="fa-solid fa-print" aria-hidden="true"></i></button>
         </div>
     </div>
 
@@ -32,7 +34,7 @@ include 'includes/header.php';
 
     <div class="recipe-meta">
         <div class="meta-item author">
-            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="<?php echo h($recipe['author']); ?>">
+            <img src="<?php echo $recipe['author_avatar'] ?: 'https://randomuser.me/api/portraits/lego/1.jpg'; ?>" alt="<?php echo h($recipe['author']); ?>">
             <span><?php echo h($recipe['author']); ?></span>
         </div>
         <div class="meta-item date">
@@ -55,7 +57,7 @@ include 'includes/header.php';
     </p>
 
     <div class="video-container">
-        <img src="<?php echo $recipe['image']; ?>" alt="<?php echo h($recipe['title']); ?>">
+        <img src="<?php echo get_recipe_image($recipe['image']); ?>" alt="<?php echo h($recipe['title']); ?>">
         <button class="play-btn"><i class="fa-solid fa-play"></i></button>
     </div>
 
@@ -72,7 +74,7 @@ include 'includes/header.php';
             <span class="label">SERVINGS</span>
             <span class="value">4 PEOPLE <i class="fa-solid fa-user-group"></i></span>
         </div>
-        <button class="print-btn"><i class="fa-solid fa-print"></i></button>
+        <button class="print-btn" id="print-recipe-alt"><i class="fa-solid fa-print"></i></button>
     </div>
 
     <div class="recipe-content-grid">

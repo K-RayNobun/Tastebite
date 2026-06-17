@@ -1,0 +1,11 @@
+.git
+.gitignore
+.DS_Store
+.clinerules
+memory-bank
+node_modules
+npm-debug.log
+docker-compose.yml
+Dockerfile
+README.md
+/tmp

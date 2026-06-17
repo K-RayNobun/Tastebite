@@ -5,10 +5,10 @@
         </a>
     </div>
     <nav class="nav">
-        <button class="nav-toggle" id="nav-toggle">&#9776;</button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">&#9776;</button>
         <ul id="nav-menu">
             <li class="has-dropdown">
-                <a href="index.php">Homepage <i class="fa-solid fa-chevron-down dropdown"></i></a>
+                <a href="index.php" aria-haspopup="true" aria-expanded="false">Homepage <i class="fa-solid fa-chevron-down dropdown" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
                     <li><a href="index.php">Main Home</a></li>
                     <li><a href="index.php#latest">Latest Recipes</a></li>
@@ -16,7 +16,7 @@
                 </ul>
             </li>
             <li class="has-dropdown">
-                <a href="recipe.php?id=1">Recipe Page <i class="fa-solid fa-chevron-down dropdown"></i></a>
+                <a href="recipe.php?id=1" aria-haspopup="true" aria-expanded="false">Recipe Page <i class="fa-solid fa-chevron-down dropdown" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
                     <?php 
                     $nav_recipes = $db->getLatestRecipes(3);
@@ -29,14 +29,20 @@
                 <a href="creator-board.php">Creator Board</a>
             </li>
             <li class="has-dropdown">
-                <a href="#">Pages <i class="fa-solid fa-chevron-down dropdown"></i></a>
+                <a href="categories.php" aria-haspopup="true" aria-expanded="false">Categories <i class="fa-solid fa-chevron-down dropdown" aria-hidden="true"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="categories.php">Categories</a></li>
+                    <?php 
+                    $nav_cats = $db->getCategories();
+                    foreach ($nav_cats as $nc): ?>
+                        <li><a href="category.php?name=<?php echo urlencode($nc['name']); ?>"><?php echo h($nc['name']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+            <li class="has-dropdown">
+                <a href="#">More <i class="fa-solid fa-chevron-down dropdown"></i></a>
+                <ul class="dropdown-menu">
                     <li><a href="about.php">About Us</a></li>
-                    <li><a href="search.php">Search</a></li>
-                    <?php if (isset($_SESSION['user_id'])): ?>
-                        <li><a href="profile.php">My Profile</a></li>
-                    <?php else: ?>
+                    <?php if (!isset($_SESSION['user_id'])): ?>
                         <li><a href="login.php">Log In</a></li>
                         <li><a href="signup.php">Sign Up</a></li>
                     <?php endif; ?>
@@ -45,7 +51,7 @@
         </ul>
     </nav>
     <div class="header-actions">
-        <a href="#" id="search-btn"><i class="fa-solid fa-magnifying-glass search-icon"></i></a>
+        <a href="#" id="search-btn" aria-label="Open search"><i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i></a>
         
         <?php if (isset($_SESSION['user_id'])): ?>
             <div class="user-menu" id="user-menu-trigger">
@@ -70,8 +76,9 @@
     </div>
 </header>
 
-<!-- Search Modal -->
-<div id="search-modal" class="search-modal">
+<!-- Search Modal (Accessibility Overhaul - Issue #11) -->
+<div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+    <h2 id="search-modal-title" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">Search Recipes</h2>
     <div class="search-container">
         <span class="close-search" id="close-search">&times;</span>
         <div class="search-input-group">

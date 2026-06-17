@@ -194,6 +194,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // --- Social Sharing & Printing ---
+    const shareBtn = document.getElementById('share-recipe');
+    const printBtns = [document.getElementById('print-recipe'), document.getElementById('print-recipe-alt')];
+    const saveBtn = document.getElementById('save-recipe');
+
+    if (shareBtn) {
+        shareBtn.addEventListener('click', async () => {
+            const recipeTitle = document.querySelector('.recipe-title')?.innerText || 'Check out this recipe!';
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: recipeTitle,
+                        url: window.location.href
+                    });
+                } catch (err) {
+                    console.error('Error sharing:', err);
+                }
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast('Link copied to clipboard!');
+            }
+        });
+    }
+
+    printBtns.forEach(btn => {
+        if (btn) {
+            btn.addEventListener('click', () => window.print());
+        }
+    });
+
+    if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+            const recipeId = this.dataset.id;
+            const icon = this.querySelector('i');
+            
+            fetch('api/toggle-save.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ recipe_id: recipeId })
+            })
+            .then(res => {
+                if (res.status === 401) {
+                    window.location.href = 'login.php';
+                    return;
+                }
+                return res.json();
+            })
+            .then(data => {
+                if (data && data.status) {
+                    if (data.status === 'saved') {
+                        icon.classList.replace('fa-regular', 'fa-solid');
+                        showToast('Saved to your collection!');
+                    } else {
+                        icon.classList.replace('fa-solid', 'fa-regular');
+                        showToast('Removed from your collection.');
+                    }
+                }
+            })
+            .catch(err => {
+                console.error('Error saving recipe:', err);
+                showToast('Something went wrong. Please try again.');
+            });
+        });
+    }
+
     // --- Global Toast Function ---
     window.showToast = function (message) {
         const container = document.getElementById('toast-container');
